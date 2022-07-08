@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 app.use('/api/wall', postRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
 
