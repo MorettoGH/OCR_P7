@@ -4,7 +4,7 @@ const fs = require('fs');
 exports.createPost = (req, res, next) => {
     const postObject = JSON.parse(req.body.post);
     delete postObject._id;
-    delete postObject._userId   //1)ici j'ai ajouté une ligne de sécurité (voir avant-avant dernier cours de Will) et j'ai un doute sur le underscore devant userId
+    delete postObject._userId   //1)ici j'ai ajouté une ligne de sécurité (voir avant-avant dernier cours de Will) et j'ai un doute sur le underscore devant _userId
     const post = new Post({
         ...postObject,
         userId: req.auth.userId,    //2)donc j'ajoute la ligne ici aussi, il faudra surement choisir entre ces lignes "1), 2) et 3)" et le if/else de auth.js)
@@ -62,3 +62,29 @@ exports.getAllPosts = (req, res, next) => {
         .then(posts => res.status(200).json(posts))
         .catch(error => res.status(400).json({error}));
 };
+
+exports.likePost = (req, res, next) => {
+    if (req.body.like === 1) {
+        Post.updateOne({ _id: req.params.id }, { $inc : {likes : +1},  $push : {usersLiked: req.body.userId} })
+            .then(() => res.status(200).json({ message: "Sauce liked !" }))
+            .catch((error) => res.status(400).json({ error }));
+    }else if(req.body.like === -1) {
+        Post.updateOne({ _id: req.params.id }, { $inc : {dislikes : +1},  $push : {usersDisliked: req.body.userId} })
+            .then(() => res.status(200).json({ message: "Sauce disliked !" }))
+            .catch((error) => res.status(500).json({ error }));
+    }else{
+        Post.findOne({ _id: req.params.id })
+            .then((post) => {
+                if (post.usersLiked.includes(req.body.userId)) {
+                    Post.updateOne({ _id: req.params.id }, { $inc : {likes: -1}, $pull : {usersLiked: req.body.userId} })
+                        .then(() => res.status(200).json({ message: "like cancelled !" }))
+                        .catch((error) => res.status(500).json({ error }));
+                }else if(post.usersDisliked.includes(req.body.userId)) {
+                    Post.updateOne({ _id: req.params.id }, { $inc : {dislikes: -1}, $pull : {usersDisliked: req.body.userId} })
+                        .then(() => res.status(200).json({ message: "dislike cancelled !" }))
+                        .catch((error) => res.status(500).json({ error }));
+                }
+            })
+            .catch((error) => res.status(401).json({ error }));
+    }
+}
