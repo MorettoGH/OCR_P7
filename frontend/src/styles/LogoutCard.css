@@ -1,0 +1,13 @@
+.gm-pages-logout {
+    margin: auto;
+    padding: 0 75px;
+    background-color: #FFD7D7;
+    border: solid #FFD7D7 1px;
+    border-radius: 30px;
+}
+
+.gm-pages-logout-title {
+    text-align: center;
+    color: #4E5166;
+    font-size: 30px;
+}

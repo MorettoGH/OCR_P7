@@ -1,0 +1,15 @@
+.gm-home-signup {
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px 20px;
+    width: 25%;
+    background-color: #FFD7D7;
+    border: solid #FFD7D7 1px;
+    border-radius: 30px;
+}
+
+.gm-home-signup-title {
+    text-align: center;
+    color: #4E5166;
+    font-size: 30px;
+}

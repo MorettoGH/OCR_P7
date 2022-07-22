@@ -1,0 +1,10 @@
+.gm-pages-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gm-pages-header-logo {
+    margin: -175px 0;
+    height: 500px;
+}

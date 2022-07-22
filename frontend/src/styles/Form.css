@@ -1,0 +1,22 @@
+.gm-pages-form {
+    margin: 100px auto 50px;
+    padding-top: 10px;
+    width: 50%;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #FFD7D7;
+}
+
+.gm-pages-form-input {
+    border: 1px #FFD7D7 solid;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    width: 500px;
+    height: 40px;
+}
+
+.gm-pages-form-text{
+    font-weight: bold;
+    font-size: 30px;
+    color: #4E5166;
+}
