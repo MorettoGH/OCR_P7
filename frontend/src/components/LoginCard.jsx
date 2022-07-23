@@ -1,11 +1,14 @@
 import '../styles/LoginCard.css';
+import {Link} from 'react-router-dom';
 
 function LoginCard() {
     const title = 'Se connecter'
     return (
-        <div className='gm-home-login'>
-            <h2 className='gm-home-login-title'>{title}</h2>
-        </div>  
+        <Link to='/login'>
+            <div className='gm-home-login'>
+                <h2 className='gm-home-login-title'>{title}</h2>
+            </div>
+        </Link>
     )
 }
 

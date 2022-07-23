@@ -1,0 +1,15 @@
+.gm-connect {
+    display: block;
+    margin: auto;
+    padding: 30px 100px;
+    background-color: #4E5166;
+    border: solid #FFD7D7 1px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.gm-connect-title {
+    text-align: center;
+    color: #FFD7D7;
+    font-size: 30px;
+}

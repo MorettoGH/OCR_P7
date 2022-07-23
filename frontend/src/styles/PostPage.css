@@ -1,0 +1,79 @@
+.gm-post-container {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+}
+
+.gm-post-card {
+    border-radius: 30px;
+    height: 500px;
+    width: 60%;
+    margin-top : 100px;
+    background-color: #FFD7D7;
+}
+
+.gm-post-title {
+    border-radius: 30px 30px 0 0;
+    text-align: right;
+    margin: 0;
+    padding: 20px 20px;
+    background-color: #4E5166;
+    color: #FFF;
+    font-size: 30px;
+}
+
+.gm-post-date {
+    padding-left: 35px;
+    margin: 5px 0 0 0;
+    color: #4E5166;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gm-post-text {
+    border-radius: 30px;
+    border : none;
+    height: 60%;
+    width: 90%;
+    margin-left: 3%;
+    margin-top: 1%;
+    padding: 20px;
+    background-color: #FFF;
+    resize: none;
+}
+
+.gm-post-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 35px;
+    color: #4E5166;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gm-post-thumbs {
+    margin: 0;
+    padding-right: 35px;
+}
+
+.gm-post-file {
+    padding-top: 5px;
+}
+
+.gm-submit-container {
+    text-align: center;
+    align-self: center;
+}
+
+.gm-post_submit {
+    height: 100px;
+    width: 200px;
+    background-color: #4E5166;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFF;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
