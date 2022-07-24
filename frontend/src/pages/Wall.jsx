@@ -1,11 +1,13 @@
 import PagesHeader from "../components/PagesHeader";
-import NewPost from "../components/NewPost";
+import NewPostBtn from "../components/NewPostBtn";
+import WallCard from "../components/WallCard";
 
 function Wall() {
   return (
     <div>
       <PagesHeader />
-      <NewPost />
+      <NewPostBtn />
+      <WallCard />
     </div>
     )
 }

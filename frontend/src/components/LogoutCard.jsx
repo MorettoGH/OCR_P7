@@ -6,7 +6,7 @@ function LogoutCard() {
     return (
         <Link to='/'>
             <div className='gm-pages-logout'>
-                <h2 className='gm-pages-logout-title'>{title}</h2>
+                <h1 className='gm-pages-logout-title'>{title}</h1>
             </div>
         </Link>
     )

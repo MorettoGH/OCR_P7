@@ -1,11 +1,9 @@
-import '../styles/PostPage.css';
-import PagesHeader from '../components/PagesHeader';
+import '../styles/Post.css'
+import {Link} from 'react-router-dom'
 
-function ModifyPage() {
-    
+function Post() {
+
     return (
-        <div>
-            <PagesHeader />
             <div className='gm-post-container'>
                 <div className='gm-post-card'>
                     <h2 className='gm-post-title'>toto@gmail.com</h2>
@@ -17,11 +15,16 @@ function ModifyPage() {
                     </div>
                 </div>
                 <div className='gm-submit-container'>
+                    <Link to='/wall'>
+                        <div className='gm-post-back'>
+                            <h3 className='gm-post-back-title'>Retour à la page principale</h3>
+                        </div>
+                    </Link>    
+                    <input type='submit' value='Publier' className='gm-post_submit'></input>
                     <input type='submit' value='Modifier' className='gm-post_submit'></input>
                 </div>
             </div>
-        </div>    
     )
 }
 
-export default ModifyPage;
+export default Post;

@@ -1,7 +1,7 @@
-import '../styles/NewPost.css';
+import '../styles/NewPostBtn.css';
 import {Link} from 'react-router-dom';
 
-function NewPost() {
+function NewPostBtn() {
     const title = '+ Nouvelle publication'
     return (
             <Link to='/wall/post'>
@@ -12,4 +12,4 @@ function NewPost() {
     )
 }
 
-export default NewPost;
+export default NewPostBtn;

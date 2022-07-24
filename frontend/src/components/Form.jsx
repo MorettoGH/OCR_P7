@@ -6,6 +6,7 @@ function Form() {
     const location = useLocation();
     let title = '';
     location.pathname === '/login' ? title = 'Connexion' : title = 'S\'inscrire';
+
 	return (
         <div>
             <form className='gm-pages-form'>
@@ -14,12 +15,15 @@ function Form() {
                     placeholder='Entrez votre mail'
                     className='gm-pages-form-input'
                     type='email'
+                    required
                 />
+                
                 <div className='gm-pages-form-text'>Mot de passe :</div>
                 <input
                     placeholder='Entrez votre mot de passe'
                     className='gm-pages-form-input'
                     type='password'
+                    required
                 />
             </form>
             <Link to='/wall'>
