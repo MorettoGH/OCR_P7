@@ -11,3 +11,7 @@
     color: #4E5166;
     font-size: 30px;
 }
+
+.gm-pages-logout:hover {
+    background-color: #d1a3a3;
+}

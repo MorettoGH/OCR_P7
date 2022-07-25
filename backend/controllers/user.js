@@ -28,11 +28,10 @@ exports.login = (req, res, next) => {
                         if (!valid){
                             res.status(401).json({message: 'Identifiant ou mot de passe incorrecte'});
                         }else{
-                            const token = jwt.sign({
-                                userId: user._id
-                            },
-                            'RANDOM_SECRET_TOKEN',
-                            {expiresIn: '24h'}
+                            const token = jwt.sign(
+                                {userId: user._id},
+                                'RANDOM_SECRET_TOKEN',
+                                {expiresIn: '24h'}
                             );
                             res.header('Authorization', 'Bearer ' + token);
                             return res.status(200).json({message: user._id + ' est authentifié'});

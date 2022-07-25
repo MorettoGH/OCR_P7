@@ -1,14 +1,14 @@
 import PagesHeader from '../components/PagesHeader';
-import NewPost from '../components/NewPost';
+import Modify from '../components/Modify';
 
-function PostPage() {
+function ModifyPage() {
 
     return (
         <div>
             <PagesHeader />
-            <NewPost />
+            <Modify />
         </div>    
     )
 }
 
-export default PostPage;
+export default ModifyPage;

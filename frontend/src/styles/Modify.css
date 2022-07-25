@@ -84,6 +84,10 @@
     font-size: 25px;
 }
 
+.gm-post-back:hover {
+    background-color: #d1a3a3;
+}
+
 .gm-post_submit {
     height: 100px;
     width: 90%;
@@ -95,4 +99,9 @@
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
+}
+
+.gm-post_submit:hover {
+    color: #fff;
+    background-color: #6c6f8d;
 }

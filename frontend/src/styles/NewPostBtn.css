@@ -13,3 +13,7 @@
     color: #FFF;
     font-size: 30px;
 }
+
+.gm-newpost-card:hover {
+    background-color: #6c6f8d;
+}

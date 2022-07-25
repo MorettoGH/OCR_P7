@@ -1,6 +1,8 @@
 .gm-pages-form {
+    display: flex;
+    flex-direction: column;
     margin: 100px auto 50px;
-    padding-top: 10px;
+    padding: 10px 0 20px;
     width: 50%;
     border-radius: 50px;
     text-align: center;
@@ -8,9 +10,11 @@
 }
 
 .gm-pages-form-input {
+    margin: auto;
     border: 1px #FFD7D7 solid;
     border-radius: 15px;
     margin-bottom: 50px;
+    padding-left: 5px;
     width: 500px;
     height: 40px;
 }
