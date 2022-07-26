@@ -1,12 +1,12 @@
 import PagesHeader from '../components/PagesHeader';
-import NewPost from '../components/NewPost';
+import CreatePost from '../components/CreatePost';
 
 function PostPage() {
 
     return (
         <div>
             <PagesHeader />
-            <NewPost />
+            <CreatePost />
         </div>    
     )
 }

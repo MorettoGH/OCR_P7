@@ -2,6 +2,7 @@ const Post = require('../models/Post');
 const fs = require('fs');
 
 exports.createPost = (req, res, next) => {
+    console.log(req.body.post);
     const postObject = JSON.parse(req.body.post);
     delete postObject._id;
     const post = new Post({

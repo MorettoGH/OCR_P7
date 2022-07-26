@@ -1,10 +1,10 @@
 import PagesHeader from "../components/PagesHeader";
 import NewPostBtn from "../components/NewPostBtn";
 import WallCard from "../components/WallCard";
-import {useState, useEffect} from 'react';
+//import {useState, useEffect} from 'react';
 
 function Wall() {
-  const [authenticated, setauthenticated] = useState(null);
+  /*const [authenticated, setauthenticated] = useState(null);
   useEffect(() => {
     const auth = localStorage.getItem("token");
     if (auth) {
@@ -12,7 +12,7 @@ function Wall() {
     }}, []);
     if (!authenticated) {
       //redirect
-    }else{
+    }else{*/
       return (
         <div>
           <PagesHeader />
@@ -21,6 +21,6 @@ function Wall() {
         </div>
         )
     }
-}
+//}
 
 export default Wall;

@@ -21,6 +21,8 @@ function LoginForm() {
                 .then((res) => {
                     console.log(res)
                     localStorage.setItem('token', res.data.token)
+                    localStorage.setItem('email', email)
+                    //localStorage.setItem('userId', res.data.userId)
                     window.location.href="/wall"
                 })
                 .catch((error) => {
@@ -45,7 +47,6 @@ function LoginForm() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                
                 <label className='gm-pages-form-text'>Mot de passe :</label>
                 <input
                     placeholder='Entrez votre mot de passe'
@@ -56,10 +57,10 @@ function LoginForm() {
                     required
                 />
                 <input 
-                type='button' 
-                className='gm-connect gm-connect-title' 
-                value='Connexion'
-                onClick={login}>
+                    type='button' 
+                    className='gm-connect gm-connect-title' 
+                    value='Connexion'
+                    onClick={login}>
                 </input>
             </form>
             

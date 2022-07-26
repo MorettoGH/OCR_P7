@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-    userId : {type: String},
+    userId : {type: String, required: true},
+    userEmail : {type: String, required: true},
     imageUrl : {type: String},
-    content : {type: String},
+    content : {type: String, required: true},
     likes : {type: Number, default: 0},
     dislikes : {type: Number, default: 0},
     usersLiked : {type: [String]},
