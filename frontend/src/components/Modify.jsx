@@ -1,5 +1,4 @@
 import '../styles/Modify.css'
-import {Link} from 'react-router-dom'
 import {useState} from 'react'
 
 function Modify() {
@@ -19,12 +18,7 @@ function Modify() {
                         <p className='gm-post-thumbs'>Like Dislike</p>
                     </div>
                 </div>
-                <div className='gm-submit-container'>
-                    <Link to='/wall'>
-                        <div className='gm-post-back'>
-                            <h3 className='gm-post-back-title'>Retour à la page principale</h3>
-                        </div>
-                    </Link>    
+                <div className='gm-submit-container'>   
                     <input type='submit' value='Modifier' className='gm-post_submit'></input>
                     <img src={img} alt='' className='gm-post-img'/>
                 </div>

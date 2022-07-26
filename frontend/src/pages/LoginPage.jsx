@@ -1,11 +1,11 @@
 import HomeHeader from "../components/HomeHeader";
-import Form from "../components/Form";
+import LoginForm from "../components/LoginForm";
 
 function LoginPage() {
   return (
     <div>
         <HomeHeader />
-        <Form />
+        <LoginForm />
     </div>
   )  
 }

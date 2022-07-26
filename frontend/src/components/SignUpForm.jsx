@@ -1,42 +1,35 @@
 import '../styles/Form.css';
 import '../styles/Connect.css'
-import {useLocation} from 'react-router-dom';
 import {useState} from 'react';
+import axios from 'axios';
 
-function Form() {
-    const location = useLocation();
-    let title = '';
-    location.pathname === '/login' ? title = 'Connexion' : title = 'S\'inscrire';
-
+function SignUpForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    async function validateForm() {
-        if (email.length > 3
-            && password.length > 3
-            && email.includes('@')) {
+    
+    async function login() {
+        let emailValid = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+        let passwordValid = /^[a-zA-ZÀ-ÿ0-9- ',]{2,15}$/
+        if (emailValid.test(email)
+            && passwordValid.test(password)) {
             let user = {
                 email: email,
                 password: password
             }
-            console.log('je suis dans le validateform');
-            const userData = await fetch(`http://localhost:4200/api/auth/login`, {
-                method: "POST",
-                headers: {
-                'Accept': 'application/json', 
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user)
+            console.log('je suis dans la fonction signup');
+            axios.post(`http://localhost:4200/api/auth/signup`, user)
+                .then((res) => {
+                    console.log(res)
+                    alert('Votre compte a été créé.')
+                    window.location.href="/wall"
                 })
-                .then((res) => res.json())
-                .then((res) => console.log(res))
-                .catch((error) => console.log(error))
-            if (userData.userId) {
-                console.log('lol');
-                localStorage.setItem("userData", JSON.stringify(userData));
-            }
+                .catch((error) => {
+                    console.log(error)
+                    alert('Utilisateur déjà existant')
+                })
+                
         }else{
-            alert('toto');
+            alert('Veuillez renseigner un email valide et un mot de passe.');
         }
     }
     
@@ -65,8 +58,8 @@ function Form() {
                 <input 
                 type='button' 
                 className='gm-connect gm-connect-title' 
-                value={title}
-                onClick={validateForm}>
+                value="S'inscrire"
+                onClick={login}>
                 </input>
             </form>
             
@@ -74,4 +67,4 @@ function Form() {
 	)
 }
 
-export default Form
+export default SignUpForm

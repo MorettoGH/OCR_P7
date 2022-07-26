@@ -5,7 +5,7 @@ import logo from '../assets/icon-left-font.png';
 function PagesHeader() {
     return (
     <div className='gm-pages-header'>
-        <a href="/"><img src={logo} alt='Logo de Groupomania' className='gm-pages-header-logo'/></a>
+        <a href="/wall"><img src={logo} alt='Logo de Groupomania' className='gm-pages-header-logo'/></a>
         <LogoutCard />
     </div>
 

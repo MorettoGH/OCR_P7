@@ -34,7 +34,7 @@ exports.login = (req, res, next) => {
                                 {expiresIn: '24h'}
                             );
                             res.header('Authorization', 'Bearer ' + token);
-                            return res.status(200).json({message: user._id + ' est authentifié'});
+                            return res.json({token});
                         }
                     })
                     .catch(error => res.status(500).json({error}));

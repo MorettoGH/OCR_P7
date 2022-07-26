@@ -1,5 +1,6 @@
 import '../styles/WallCard.css';
 import {Link} from 'react-router-dom';
+/*import ProfileList from '../datas/ProfileList'*/
 
 function WallCard() {
     return (
