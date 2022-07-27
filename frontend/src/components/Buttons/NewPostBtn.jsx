@@ -1,4 +1,4 @@
-import '../styles/NewPostBtn.css';
+import './NewPostBtn.css';
 import {Link} from 'react-router-dom';
 
 function NewPostBtn() {

@@ -1,5 +1,5 @@
-import PagesHeader from '../components/PagesHeader';
-import CreatePost from '../components/CreatePost';
+import PagesHeader from '../components/Headers/PagesHeader';
+import CreatePost from '../components/Posts/CreatePost';
 
 function PostPage() {
 

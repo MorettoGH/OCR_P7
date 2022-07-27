@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import '../styles/LogoutCard.css';
+import './LogoutCard.css';
 
 function clearSession() {
     localStorage.clear()

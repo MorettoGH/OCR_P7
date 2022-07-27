@@ -1,24 +1,26 @@
-import '../styles/NewPost.css'
+import './CreatePost.css'
 import {useState} from 'react'
 import axios from 'axios'
 
 function CreatePost() {
-    const [img, setImg] = useState('');
-    const [content, setContent] = useState('');
-    const onImageChange = (e) => {
-        const [file] = e.target.files;
-        setImg(URL.createObjectURL(file));
-    }
     const token = localStorage.getItem("token")
     const email = localStorage.getItem("email")
-    //const userId = localStorage.getItem("userId")
+
+    const [img, setImg] = useState('');
+    const [content, setContent] = useState('');
+    const [preview, setPreview] = useState('');
+
+    const onImageChange = (e) => {
+        const [file] = e.target.files;
+        setPreview(URL.createObjectURL(file));
+        setImg(e.target.files[0]);
+    }
     
-    async function addPost() {
+    function addPost() {
         const formData = new FormData();
-        formData.append('post', JSON.stringify(content));
+        formData.append('post', content);
         formData.append('image', img);
         
-        console.log(formData);
         console.log(content);
         console.log(img);
         axios({
@@ -39,7 +41,7 @@ function CreatePost() {
     }
     
     return (
-            <div className='gm-post-container'>
+            <form className='gm-post-container'>
                 <div className='gm-post-card'>
                     <h2 className='gm-post-title'>{email}</h2>
                     <textarea 
@@ -52,23 +54,24 @@ function CreatePost() {
                     <div className='gm-post-footer'>
                         <input
                             type='file'
-                            accept="image/png, image/jpeg, image/jpg" onChange={onImageChange} className='gm-post-file'>
+                            accept="image/png, image/jpeg, image/jpg" 
+                            onChange={onImageChange} className='gm-post-file'
+                            >    
                         </input>   
                     </div>
                 </div>
                 <div className='gm-submit-container'>   
                     <img 
-                        src={img} alt='' 
-                        className='gm-post-img'
-                        onChange={(e) => setImg(e.target.value)}/>
+                        src={preview} alt='' 
+                        className='gm-post-img'/>
                     <input 
-                        type='submit' 
+                        type='button' 
                         value='Publier' 
                         className='gm-post_submit'
                         onClick={addPost}>
                     </input>
                 </div>
-            </div>
+            </form>
     )
 }
 

@@ -1,12 +1,12 @@
-import PagesHeader from '../components/PagesHeader';
-import Modify from '../components/Modify';
+import PagesHeader from '../components/Headers/PagesHeader';
+import ModifyPost from '../components/Posts/ModifyPost';
 
 function ModifyPage() {
 
     return (
         <div>
             <PagesHeader />
-            <Modify />
+            <ModifyPost />
         </div>    
     )
 }

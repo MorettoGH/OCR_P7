@@ -1,7 +1,7 @@
-import '../styles/Modify.css'
+import './Modify.css'
 import {useState} from 'react'
 
-function Modify() {
+function ModifyPost() {
     const [img, setImg] = useState();
     const onImageChange = (e) => {
         const [file] = e.target.files;
@@ -26,4 +26,4 @@ function Modify() {
     )
 }
 
-export default Modify;
+export default ModifyPost;

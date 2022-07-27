@@ -1,6 +1,6 @@
-import LogoutCard from './LogoutCard';
-import '../styles/PagesHeader.css';
-import logo from '../assets/icon-left-font.png';
+import LogoutCard from '../Buttons/LogoutCard';
+import './PagesHeader.css';
+import logo from '../../assets/icon-left-font.png';
 
 function PagesHeader() {
     return (

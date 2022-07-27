@@ -1,4 +1,4 @@
-import '../styles/SignUpCard.css';
+import './SignUpCard.css';
 import {Link} from 'react-router-dom';
 
 function SignUpCard() {

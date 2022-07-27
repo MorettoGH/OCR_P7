@@ -1,5 +1,5 @@
-import '../styles/HomeHeader.css';
-import logo from '../assets/icon-left-font.png';
+import './HomeHeader.css';
+import logo from '../../assets/icon-left-font.png';
 
 function HomeHeader() {
     const title = 'Bienvenue sur le réseau social de Groupomania !'

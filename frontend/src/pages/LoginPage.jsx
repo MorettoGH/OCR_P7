@@ -1,5 +1,5 @@
-import HomeHeader from "../components/HomeHeader";
-import LoginForm from "../components/LoginForm";
+import HomeHeader from "../components/Headers/HomeHeader";
+import LoginForm from "../components/Forms/LoginForm";
 
 function LoginPage() {
   return (

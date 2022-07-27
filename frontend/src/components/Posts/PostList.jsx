@@ -1,8 +1,8 @@
-import '../styles/WallCard.css';
+import './PostList.css';
 import {Link} from 'react-router-dom';
 /*import ProfileList from '../datas/ProfileList'*/
 
-function WallCard() {
+function PostList() {
     return (
             <div className='gm-wallcard-container'>
                     <div className='gm-wallcard'>
@@ -42,4 +42,4 @@ function WallCard() {
     )
 }
 
-export default WallCard;
+export default PostList;

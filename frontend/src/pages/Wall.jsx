@@ -1,6 +1,6 @@
-import PagesHeader from "../components/PagesHeader";
-import NewPostBtn from "../components/NewPostBtn";
-import WallCard from "../components/WallCard";
+import PagesHeader from "../components/Headers/PagesHeader";
+import NewPostBtn from "../components/Buttons/NewPostBtn";
+import PostList from "../components/Posts/PostList";
 //import {useState, useEffect} from 'react';
 
 function Wall() {
@@ -17,7 +17,7 @@ function Wall() {
         <div>
           <PagesHeader />
           <NewPostBtn />
-          <WallCard />
+          <PostList />
         </div>
         )
     }

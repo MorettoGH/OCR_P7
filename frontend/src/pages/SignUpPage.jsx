@@ -1,5 +1,5 @@
-import HomeHeader from "../components/HomeHeader";
-import SignUpForm from "../components/SignUpForm";
+import HomeHeader from "../components/Headers/HomeHeader";
+import SignUpForm from "../components/Forms/SignUpForm";
 
 function SignUpPage() {
   return (

@@ -1,6 +1,6 @@
-import HomeHeader from "../components/HomeHeader";
-import LoginCard from "../components/LoginCard";
-import SignUpCard from "../components/SignUpCard";
+import HomeHeader from "../components/Headers/HomeHeader";
+import LoginCard from "../components/Buttons/LoginCard";
+import SignUpCard from "../components/Buttons/SignUpCard";
 
 function Home() {
   return (

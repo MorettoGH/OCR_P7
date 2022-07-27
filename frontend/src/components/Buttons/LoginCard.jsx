@@ -1,4 +1,4 @@
-import '../styles/LoginCard.css';
+import './LoginCard.css';
 import {Link} from 'react-router-dom';
 
 function LoginCard() {

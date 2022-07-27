@@ -1,5 +1,5 @@
-import '../styles/Form.css';
-import '../styles/Connect.css'
+import './Form.css';
+import './FormBtn.css'
 import {useState} from 'react';
 import axios from 'axios';
 
