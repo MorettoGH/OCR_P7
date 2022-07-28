@@ -5,6 +5,12 @@
     width: 25%;
     border: solid #4E5166 1px;
     border-radius: 30px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.gm-home-login:hover {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #afb1c2;
 }
 
 .gm-home-login-title {
@@ -12,3 +18,4 @@
     color: #4E5166;
     font-size: 30px;
 }
+

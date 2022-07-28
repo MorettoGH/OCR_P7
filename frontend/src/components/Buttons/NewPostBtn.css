@@ -6,6 +6,7 @@
     background-color: #4E5166;
     border: none;
     border-radius: 30px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .gm-newpost-title {
@@ -16,4 +17,5 @@
 
 .gm-newpost-card:hover {
     background-color: #6c6f8d;
+    transition: background-color 0.3s ease-in-out;
 }

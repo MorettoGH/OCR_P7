@@ -67,7 +67,7 @@ function CreatePost() {
                     <input 
                         type='button' 
                         value='Publier' 
-                        className='gm-post_submit'
+                        className='gm-post-submit'
                         onClick={addPost}>
                     </input>
                 </div>

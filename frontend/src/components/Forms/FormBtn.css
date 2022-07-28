@@ -1,19 +1,22 @@
-.gm-connect {
+.gm-form-btn {
     display: block;
     margin: auto;
     padding: 30px 100px;
     background-color: #4E5166;
     border: solid #FFD7D7 1px;
     border-radius: 30px;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.gm-connect-title {
+.gm-form-btn-title {
     text-align: center;
     color: #FFF;;
     font-size: 30px;
 }
 
-.gm-connect:hover {
+.gm-form-btn:hover {
     color: #fff;
     background-color: #6c6f8d;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }

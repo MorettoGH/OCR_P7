@@ -58,7 +58,7 @@ function SignUpForm() {
                 />
                 <input 
                 type='button' 
-                className='gm-connect gm-connect-title' 
+                className='gm-form-btn gm-form-btn-title' 
                 value="S'inscrire"
                 onClick={login}>
                 </input>

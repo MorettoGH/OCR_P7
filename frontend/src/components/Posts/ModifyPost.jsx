@@ -1,4 +1,4 @@
-import './Modify.css'
+import './ModifyPost.css'
 import {useState} from 'react'
 
 function ModifyPost() {
@@ -15,12 +15,12 @@ function ModifyPost() {
                     <textarea type='text' maxLength={1500} className='gm-post-text'></textarea>
                     <div className='gm-post-footer'>
                         <input type='file' accept="image/png, image/jpeg, image/jpg" className='gm-post-file' onChange={onImageChange}></input>   
-                        <p className='gm-post-thumbs'>Like Dislike</p>
+                        <p className='gm-post-thumbs'>Like</p>
                     </div>
                 </div>
                 <div className='gm-submit-container'>   
-                    <input type='submit' value='Modifier' className='gm-post_submit'></input>
                     <img src={img} alt='' className='gm-post-img'/>
+                    <input type='submit' value='Modifier' className='gm-post-submit'></input>
                 </div>
             </div>
     )

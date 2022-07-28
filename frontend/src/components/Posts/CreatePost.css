@@ -51,11 +51,6 @@
     font-weight: bold;
 }
 
-.gm-post-thumbs {
-    margin: 0;
-    padding: 5px 40px 0;
-}
-
 .gm-post-file {
     padding: 10px 0 0 40px;
 }
@@ -65,7 +60,7 @@
     width: 20%;
 }
 
-.gm-post_submit {
+.gm-post-submit {
     height: 100px;
     width: 90%;
     margin-top: 100px;

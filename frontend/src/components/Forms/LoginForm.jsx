@@ -58,7 +58,7 @@ function LoginForm() {
                 />
                 <input 
                     type='button' 
-                    className='gm-connect gm-connect-title' 
+                    className='gm-form-btn gm-form-btn-title' 
                     value='Connexion'
                     onClick={login}>
                 </input>
