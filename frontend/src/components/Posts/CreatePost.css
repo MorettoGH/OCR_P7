@@ -67,10 +67,16 @@
     border: none;
     border-radius: 30px;
     background-color: #4E5166;
+    transition: background-color 0.3s ease-in-out;
     font-size: 30px;
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
+}
+
+.gm-post-submit:hover {
+    background-color: #6c6f8d;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .gm-post-img {
@@ -79,4 +85,5 @@
     height: 300px;
     width: 300px;
     background-color: #e6e6e6;
+    object-fit: contain;
 }

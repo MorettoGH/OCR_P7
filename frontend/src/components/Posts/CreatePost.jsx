@@ -1,6 +1,7 @@
 import './CreatePost.css'
 import {useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 function CreatePost() {
     const token = localStorage.getItem("token")
@@ -31,8 +32,8 @@ function CreatePost() {
                         'Authorization': 'Bearer ' + token}
             })
             .then((res) => {
-                console.log(res)
-                console.log('post créé')
+                alert('Vous avez créer une publication')
+
             })
             .catch((error) => {
                 console.log(error)
@@ -64,12 +65,14 @@ function CreatePost() {
                     <img 
                         src={preview} alt='' 
                         className='gm-post-img'/>
-                    <input 
-                        type='button' 
-                        value='Publier' 
-                        className='gm-post-submit'
-                        onClick={addPost}>
-                    </input>
+                    <Link to='/wall'>
+                        <input 
+                            type='button' 
+                            value='Publier' 
+                            className='gm-post-submit'
+                            onClick={addPost}>
+                        </input>
+                    </Link>
                 </div>
             </form>
     )

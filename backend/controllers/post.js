@@ -49,28 +49,16 @@ exports.getAllPosts = (req, res, next) => {
 };
 
 exports.likePost = (req, res, next) => {
-    console.log(req.body);
-    if (req.body.like === 1) {
-        Post.updateOne({ _id: req.params.id }, { $inc : {likes : +1},  $push : {usersLiked: req.body.userId} })
-            .then(() => res.status(200).json({ message: "Sauce liked !" }))
+    // use the req.body.userLiked to check if the user already like the post with the req.-> auth <- .userId comparison
+    if (!req.body.usersLiked.includes(req.auth.userId)) {
+        // if userId not find - update like +1 and add the userId in usersLiked array
+        Post.updateOne({ _id: req.params.id }, { $inc: { likes: +1 }, $push: { usersLiked: req.auth.userId } })
+            .then(() => res.status(200).json({ message: "Post liked !", userId: req.auth.userId }))
             .catch((error) => res.status(400).json({ error }));
-    }else if(req.body.like === -1) {
-        Post.updateOne({ _id: req.params.id }, { $inc : {dislikes : +1},  $push : {usersDisliked: req.body.userId} })
-            .then(() => res.status(200).json({ message: "Sauce disliked !" }))
+    } else {
+        // if user id exist, update like -1 and remove the user id from the usersLike array
+        Post.updateOne({ _id: req.params.id }, { $inc: { likes: -1 }, $pull: { usersLiked: req.auth.userId } })
+            .then(() => res.status(200).json({ message: "like cancelled !" }))
             .catch((error) => res.status(500).json({ error }));
-    }else{
-        Post.findOne({ _id: req.params.id })
-            .then((post) => {
-                if (post.usersLiked.includes(req.body.userId)) {
-                    Post.updateOne({ _id: req.params.id }, { $inc : {likes: -1}, $pull : {usersLiked: req.body.userId} })
-                        .then(() => res.status(200).json({ message: "like cancelled !" }))
-                        .catch((error) => res.status(500).json({ error }));
-                }else if(post.usersDisliked.includes(req.body.userId)) {
-                    Post.updateOne({ _id: req.params.id }, { $inc : {dislikes: -1}, $pull : {usersDisliked: req.body.userId} })
-                        .then(() => res.status(200).json({ message: "dislike cancelled !" }))
-                        .catch((error) => res.status(500).json({ error }));
-                }
-            })
-            .catch((error) => res.status(401).json({ error }));
     }
-}
+};

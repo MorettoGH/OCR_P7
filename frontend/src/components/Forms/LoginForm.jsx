@@ -19,9 +19,9 @@ function LoginForm() {
             console.log('je suis dans la fonction login');
             axios.post(`http://localhost:4200/api/auth/login`, user)
                 .then((res) => {
-                    console.log(res)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('email', email)
+                    localStorage.setItem('userId', res.data.userId)
                     window.location.href="/wall"
                 })
                 .catch((error) => {
