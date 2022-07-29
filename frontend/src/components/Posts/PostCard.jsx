@@ -34,6 +34,10 @@ function PostCard() {
                 console.log(error);
             })
     }
+
+    const onEditClick = (id) => {
+        window.location.href = `/wall/post/${id}`
+    }
     
     const deletePost = (id) => {
         axios.delete(`http://localhost:4200/api/wall/${id}`, {headers: {Authorization: `bearer ${auth}`}})
@@ -67,8 +71,8 @@ function PostCard() {
                         <div className='gm-postcard-title'>
                             {post.userId === userId && ( 
                                 <> 
-                                <h3><Edit/></h3>
-                                <h3 onClick={() => (deletePost(post._id))}><Trash2  color="red"/></h3>
+                                <h3 onClick={() => onEditClick(post._id)}><Edit/></h3>
+                                <h3 onClick={() => deletePost(post._id)}><Trash2  color="red"/></h3>
                                 </>
                             )}
                         </div>

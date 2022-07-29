@@ -22,8 +22,6 @@ function CreatePost() {
         formData.append('post', content);
         formData.append('image', img);
         
-        console.log(content);
-        console.log(img);
         axios({
             method: 'POST',
             url: 'http://localhost:4200/api/wall/new',

@@ -1,59 +1,68 @@
-import './ModifyPost.css'
-import {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import './ModifyPost.css';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
+import {useParams} from 'react-router-dom';
 
 function ModifyPost() {
     const auth = localStorage.getItem("token");
-    const [preview, setPreview] = useState();
-    const [postParams, setPostParams] = useState();
-    const { postId } = useParams()
-    const [img, setImg] = useState('');
+    const postData = useParams();
     const [content, setContent] = useState('');
+    const [post, setPost] = useState('');
+    const [img, setImg] = useState('');
+    const [preview, setPreview] = useState('');
 
     useEffect(() => {
         axios({
             method: 'GET',
-            url: `http://localhost:4200/api/wall/${postId}`,
+            url: `http://localhost:4200/api/wall/${postData.id}`,
             headers: {'Authorization': 'Bearer ' + auth}
             })
             .then(res => {
-                setPostParams(res.data);
-                console.log(res.data);
+                setPost(res.data);
+                setContent(res.data.content);
+                setPreview(res.data.imageUrl);
             })
     }, []);
-
+    
     const onImageChange = (e) => {
         const [file] = e.target.files;
         setPreview(URL.createObjectURL(file));
         setImg(e.target.files[0]);
     }
+
     return (
-            <div className='gm-post-container'>
+            <form className='gm-post-container'>
                 <div className='gm-post-card'>
                     <h2 className='gm-post-title'>Post</h2>
-                    <p className='gm-post-date'> Publié le :</p>
+                    <p className='gm-post-date'> Publié le {post.timestamp}</p>
                     <textarea 
                         type='text' 
                         maxLength={1500} 
                         className='gm-post-text'
-                        value=''
-                        readOnly>
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}>
                     </textarea>
                     <div className='gm-post-footer'>
                         <input 
                             type='file' 
-                            accept="image/png, image/jpeg, image/jpg" className='gm-post-file' 
-                            onChange={onImageChange}>
-                        </input>   
-                        <p className='gm-post-thumbs'>Like</p>
+                            accept="image/png, image/jpeg, image/jpg"
+                            className='gm-post-file'
+                            onChange={onImageChange}
+                            >
+                        </input>
                     </div>
                 </div>
                 <div className='gm-submit-container'>   
-                    <img src={preview} alt='' className='gm-post-img'/>
-                    <input type='submit' value='Modifier' className='gm-post-submit'></input>
+                    <img 
+                        src={preview} alt='' 
+                        className='gm-post-img'/>
+                    <input 
+                        type='submit' 
+                        value='Modifier' 
+                        className='gm-post-submit'>
+                     </input>
                 </div>
-            </div>
+            </form>
     )
 }
 
