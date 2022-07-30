@@ -24,3 +24,13 @@
     font-size: 30px;
     color: #4E5166;
 }
+
+@media screen and (max-width: 998px) { 
+    .gm-pages-form {
+        width: 90%;
+    }
+    
+    .gm-pages-form-input {
+        width: 90%;
+    }
+}

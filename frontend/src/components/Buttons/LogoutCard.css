@@ -17,3 +17,15 @@
     background-color: #d1a3a3;
     transition: background-color 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 998px) { 
+    .gm-pages-logout {
+        margin: auto;
+        width: 50%;
+    }
+    
+    .gm-pages-logout-title {
+        margin: 20px auto;
+        width: 100%;
+    }
+}

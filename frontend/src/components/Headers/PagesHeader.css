@@ -7,3 +7,13 @@
 .gm-pages-header-logo {
     height: 150px;
 }
+
+@media screen and (max-width: 998px) { 
+    .gm-pages-header {
+        flex-direction: column;
+    }
+    
+    .gm-pages-header-logo {
+        height: 100px;
+    }
+}

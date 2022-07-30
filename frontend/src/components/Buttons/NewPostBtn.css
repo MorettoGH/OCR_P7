@@ -19,3 +19,15 @@
     background-color: #6c6f8d;
     transition: background-color 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 998px) { 
+    .gm-newpost-card {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 728px) { 
+    .gm-newpost-card {
+        width: 80%;
+    }
+}

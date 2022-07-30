@@ -19,3 +19,9 @@
     background-color: #d1a3a3;
     transition: background-color 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 998px) {
+    .gm-home-signup {
+        width: 60%;
+    }    
+}

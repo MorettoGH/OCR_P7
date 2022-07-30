@@ -19,3 +19,9 @@
     font-size: 30px;
 }
 
+@media screen and (max-width: 998px) {
+    .gm-home-login {
+        width: 60%;
+    }    
+}
+

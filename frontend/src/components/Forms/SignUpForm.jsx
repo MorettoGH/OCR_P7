@@ -22,7 +22,6 @@ function SignUpForm() {
                     console.log(res)
                     alert('Votre compte a été créé.')
                     localStorage.setItem('email', email)
-                    window.location.href="/wall"
                 })
                 .catch((error) => {
                     console.log(error)

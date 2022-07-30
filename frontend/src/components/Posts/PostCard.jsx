@@ -1,7 +1,7 @@
 import './PostCard.css';
 import {Edit, Trash2, ThumbsUp} from 'react-feather'
 import axios from 'axios';
-import {Fragment, useState} from 'react'
+import {useState} from 'react'
 import { useEffect } from 'react';
 
 function PostCard() {
@@ -59,7 +59,7 @@ function PostCard() {
             {postList.map((post) => {
                 return (
                 <div key={post._id} className='gm-postcard'>
-                    <div>
+                    <div className='gm-mq-postcard'>
                         <img src={post.imageUrl} alt="" className='gm-postcard-img'></img>
                         {/* 
                             onClick - Get id for the path to the post

@@ -87,3 +87,13 @@
     background-color: #e6e6e6;
     object-fit: contain;
 }
+
+@media screen and (max-width: 1487px) {
+    .gm-post-img {
+        margin-top:0;
+    }
+    .gm-post_submit {
+        height: 100px;
+        width: 90%;
+    }
+}

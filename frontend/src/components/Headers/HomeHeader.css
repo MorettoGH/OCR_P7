@@ -10,3 +10,14 @@
     font-size: 40px;
     color : #4E5166;
 }
+
+@media screen and (max-width: 998px) { 
+    .gm-home-header-logo {
+        height: 100px;
+    }
+
+    .gm-home-header-title {
+        margin: auto 40px;
+        font-size: 30px;
+    }
+}

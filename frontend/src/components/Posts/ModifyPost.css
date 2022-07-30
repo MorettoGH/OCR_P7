@@ -36,7 +36,7 @@
     margin: auto;
     padding: 20px;
     height: 60%;
-    width: 90%;
+    width: 80%;
     border-radius: 30px;
     border : none;
     background-color: #FFF;
@@ -93,4 +93,30 @@
 .gm-post_submit:hover {
     color: #fff;
     background-color: #6c6f8d;
+}
+
+@media screen and (max-width: 1487px) {
+    .gm-post-container {
+        display: block;
+        justify-content: center;
+    }
+    .gm-post-card {
+        margin : 75px auto;
+        height: 700px;
+        width: 90%;
+    }
+    .gm-newpost-text {
+        display: block;
+        height: 70%;
+        margin: 10px auto;
+        width: 80%;
+    }
+    .gm-post-file {
+        padding: 40px 0 0 40px;
+    }
+    .gm-submit-container {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }
