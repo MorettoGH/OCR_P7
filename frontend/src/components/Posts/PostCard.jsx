@@ -77,7 +77,7 @@ function PostCard() {
                             )}
                         </div>
                         <p className='gm-postcard-text'>{post.content}</p>
-                        <p className='gm-postcard-date'> Publié le : {post.timestamp}</p>
+                        <p className='gm-postcard-date'> Publié le : {post.date}</p>
                     </div>
                 </div>
             )
