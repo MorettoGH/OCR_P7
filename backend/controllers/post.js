@@ -5,9 +5,10 @@ exports.createPost = (req, res, next) => {
     const content = req.body.post;
     const post = new Post({
         userId: req.auth.userId,
-        content: content,
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        content: content
     });
+    if (req.file) {
+        post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}   
     post.save()
         .then(() => res.status(201).json({message: 'Votre publication a été publiée'}))
         .catch(error => res.status(400).json({error}));

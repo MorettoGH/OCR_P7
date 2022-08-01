@@ -22,6 +22,7 @@ function LoginForm() {
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('email', email)
                     localStorage.setItem('userId', res.data.userId)
+                    localStorage.setItem('isAdmin', res.data.isAdmin)
                     window.location.href="/wall"
                 })
                 .catch((error) => {

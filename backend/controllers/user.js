@@ -29,16 +29,17 @@ exports.login = (req, res, next) => {
                             res.status(401).json({message: 'Identifiant ou mot de passe incorrecte'});
                         }else{
                             const token = jwt.sign(
-                                {userId: user._id},
+                                {userId: user._id, 
+                                isAdmin: user.isAdmin},
                                 'RANDOM_SECRET_TOKEN',
                                 {expiresIn: '24h'}
                             );
                             res.header('Authorization', 'Bearer ' + token);
-                            return res.json({token, userId: user._id})
+                            return res.json({token, userId: user._id, isAdmin : user.isAdmin})
                         }
                     })
-                    .catch(error => res.status(500).json({error}));
+                    .catch(error => res.status(500).json({error}));  
             }
         })
-        .catch(error => res.status(500).json({error}));
+        .catch(error => res.status(500).json({error}));    
 };

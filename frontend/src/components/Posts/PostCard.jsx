@@ -1,16 +1,17 @@
 import './PostCard.css';
 import {Edit, Trash2, ThumbsUp} from 'react-feather'
 import axios from 'axios';
-import {useState} from 'react'
-import { useEffect } from 'react';
+import {useState, useEffect} from 'react'
 
 function PostCard() {
     const auth = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
+    const isAdmin = localStorage.getItem("isAdmin");
 
     const [postList, setPostList] = useState([]);
     const [isLiked, setIsLiked] = useState(true);
 
+    // fetch all datas if valid token 
     const getAllPosts = () => {
         axios({
             method: 'GET',
@@ -24,7 +25,6 @@ function PostCard() {
 
     const onLikeClick = async (id, usersLiked) => {
         // Axios Request: use the userlike data of the clicked post to verify if the current user has already like it
-        // the like data in req.body is useless
         await axios.post(`http://localhost:4200/api/wall/${id}/like`, {usersLiked},
             {headers: {Authorization: `bearer ${auth}`}})
             .then(() => {
@@ -34,7 +34,7 @@ function PostCard() {
                 console.log(error);
             })
     }
-
+    
     const onEditClick = (id) => {
         window.location.href = `/wall/post/${id}`
     }
@@ -52,7 +52,7 @@ function PostCard() {
     useEffect(() => {
         getAllPosts();
     // eslint-disable-next-line
-    }, [isLiked]); // re-render for each change in likeAction value
+    }, [isLiked]); // re-render for each change in like action value
 
     return (
         <div className='gm-postcard-container'>
@@ -69,7 +69,7 @@ function PostCard() {
                     </div>
                     <div className='gm-postcard-content'>    
                         <div className='gm-postcard-title'>
-                            {post.userId === userId && ( 
+                            {(post.userId === userId || isAdmin === true) && ( 
                                 <> 
                                 <h3 onClick={() => onEditClick(post._id)}><Edit/></h3>
                                 <h3 onClick={() => deletePost(post._id)}><Trash2  color="red"/></h3>
