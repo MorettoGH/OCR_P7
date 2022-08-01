@@ -30,11 +30,33 @@ function ModifyPost() {
         setImg(e.target.files[0]);
     }
 
+    function replacePost() {
+        const formData = new FormData();
+        formData.append('post', content);
+        formData.append('image', img);
+        
+        axios({
+            method: 'PUT',
+            url: `http://localhost:4200/api/wall/${postData.id}`,
+            data: formData,
+            headers: { 'Content-Type': 'multipart/form-data',
+                        'Authorization': 'Bearer ' + auth}
+            })
+            .then((res) => {
+                alert('Vous avez modifié une publication')
+
+            })
+            .catch((error) => {
+                console.log(error)
+                alert('nope')
+            })
+    }
+
     return (
             <form className='gm-post-container'>
                 <div className='gm-post-card'>
                     <h2 className='gm-post-title'>Post</h2>
-                    <p className='gm-post-date'> Publié le {post.timestamp}</p>
+                    <p className='gm-post-date'> Publié le {post.date}</p>
                     <textarea 
                         type='text' 
                         maxLength={1500} 
@@ -59,7 +81,8 @@ function ModifyPost() {
                     <input 
                         type='submit' 
                         value='Modifier' 
-                        className='gm-post-submit'>
+                        className='gm-post-submit'
+                        onClick={replacePost}>
                      </input>
                 </div>
             </form>
