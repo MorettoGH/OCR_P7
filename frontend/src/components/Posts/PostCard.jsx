@@ -69,7 +69,7 @@ function PostCard() {
                     </div>
                     <div className='gm-postcard-content'>    
                         <div className='gm-postcard-title'>
-                            {(post.userId === userId || isAdmin === true) && ( 
+                            {(post.userId === userId || isAdmin === 'true') && ( 
                                 <> 
                                 <h3 onClick={() => onEditClick(post._id)}><Edit/></h3>
                                 <h3 onClick={() => deletePost(post._id)}><Trash2  color="red"/></h3>
