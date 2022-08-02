@@ -1,7 +1,7 @@
 import './ModifyPost.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 
 function ModifyPost() {
     const auth = localStorage.getItem("token");
@@ -22,6 +22,7 @@ function ModifyPost() {
                 setContent(res.data.content);
                 setPreview(res.data.imageUrl);
             })
+    // eslint-disable-next-line       
     }, []);
     
     const onImageChange = (e) => {
@@ -43,8 +44,7 @@ function ModifyPost() {
                         'Authorization': 'Bearer ' + auth}
             })
             .then((res) => {
-                alert('Vous avez modifié une publication')
-
+                alert('Vous avez modifié une publication');
             })
             .catch((error) => {
                 console.log(error)
@@ -78,12 +78,14 @@ function ModifyPost() {
                     <img 
                         src={preview} alt='' 
                         className='gm-post-img'/>
-                    <input 
-                        type='submit' 
-                        value='Modifier' 
-                        className='gm-post-submit'
-                        onClick={replacePost}>
-                     </input>
+                    <Link to='/wall'>
+                        <input 
+                            type='submit' 
+                            value='Modifier' 
+                            className='gm-post-submit'
+                            onClick={replacePost}>
+                        </input>
+                     </Link>
                 </div>
             </form>
     )

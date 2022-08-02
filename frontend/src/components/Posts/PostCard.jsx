@@ -57,6 +57,11 @@ function PostCard() {
     return (
         <div className='gm-postcard-container'>
             {postList.map((post) => {
+                function dateFormat(date){
+                    const dateCreate = new Date(date)
+                    const options = {year: 'numeric', month: 'numeric', day:'numeric'}
+                    return dateCreate.toLocaleDateString('fr-FR', options)
+                }
                 return (
                 <div key={post._id} className='gm-postcard'>
                     <div className='gm-mq-postcard'>
@@ -77,7 +82,7 @@ function PostCard() {
                             )}
                         </div>
                         <p className='gm-postcard-text'>{post.content}</p>
-                        <p className='gm-postcard-date'> Publié le : {post.date}</p>
+                        <p className='gm-postcard-date'> Publié le : {dateFormat(post.date)}</p>
                     </div>
                 </div>
             )

@@ -31,7 +31,6 @@ function CreatePost() {
             })
             .then((res) => {
                 alert('Vous avez créer une publication')
-
             })
             .catch((error) => {
                 console.log(error)
