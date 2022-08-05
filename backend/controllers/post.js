@@ -7,23 +7,27 @@ exports.createPost = (req, res, next) => {
         userId: req.auth.userId,
         content: content
     });
-    if (req.file) {
-        post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}   
-    post.save()
-        .then(() => res.status(201).json({message: 'Votre publication a été publiée'}))
-        .catch(error => res.status(400).json({error}));
+    if (req.body.userId === req.auth.userId || req.auth.isAdmin === true) {
+        if (req.file) {
+            post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}   
+        post.save()
+            .then(() => res.status(201).json({message: 'Votre publication a été publiée'}))
+            .catch(error => res.status(400).json({error}));
+    }    
 };
 
 exports.modifyPost = (req, res, next) => {
-    const content = req.body.post;
+    const content = req.body.content;
     const post = {
         content: content
     };
-    if (req.file) {
-        post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}
-    Post.updateOne({_id: req.params.id}, {...post, _id: req.params.id})
-                .then(() => res.status(200).json({message: 'Publication modifiée'}))
-                .catch(error => res.status(404).json({error}));
+    if (req.body.userId === req.auth.userId || req.auth.isAdmin === true) {
+        if (req.file) {
+            post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}
+        Post.updateOne({_id: req.params.id}, {...post, _id: req.params.id})
+                    .then(() => res.status(200).json({message: 'Publication modifiée'}))
+                    .catch(error => res.status(404).json({error}));
+    }
 };
 
 exports.deletePost = (req, res, next) => {

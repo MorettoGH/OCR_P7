@@ -10,6 +10,7 @@ function ModifyPost() {
     const [post, setPost] = useState('');
     const [img, setImg] = useState('');
     const [preview, setPreview] = useState('');
+    const [userId, setUserId] = useState('');
 
     useEffect(() => {
         axios({
@@ -21,6 +22,7 @@ function ModifyPost() {
                 setPost(res.data);
                 setContent(res.data.content);
                 setPreview(res.data.imageUrl);
+                setUserId(res.data.userId);
             })
     // eslint-disable-next-line       
     }, []);
@@ -33,13 +35,14 @@ function ModifyPost() {
 
     function replacePost() {
         const formData = new FormData();
-        formData.append('post', content);
+        formData.append('content', content);
         formData.append('image', img);
+        formData.append('userId', userId);
         
         axios({
             method: 'PUT',
             url: `http://localhost:4200/api/wall/${postData.id}`,
-            data: formData,
+            data: formData, userId,
             headers: { 'Content-Type': 'multipart/form-data',
                         'Authorization': 'Bearer ' + auth}
             })

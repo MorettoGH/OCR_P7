@@ -1,10 +1,14 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
 
 const User = require('../models/User');
 
+
 exports.signup = (req, res, next) => {
-    bcrypt.hash(req.body.password, 10)
+    let emailValid = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+    if (emailValid.test(req.body.email)) {
+        bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
                 email: req.body.email,
@@ -15,6 +19,9 @@ exports.signup = (req, res, next) => {
                 .catch(error => res.status(400).json({error}));
         })
         .catch(error => res.status(500).json({error}));
+    }else{
+        console.log("email non valide");
+    }   
 };
 
 exports.login = (req, res, next) => {
@@ -31,7 +38,7 @@ exports.login = (req, res, next) => {
                             const token = jwt.sign(
                                 {userId: user._id, 
                                 isAdmin: user.isAdmin},
-                                'RANDOM_SECRET_TOKEN',
+                                process.env.SECRET_KEY,
                                 {expiresIn: '24h'}
                             );
                             res.header('Authorization', 'Bearer ' + token);

@@ -5,9 +5,11 @@ const path = require('path');
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 
+require('dotenv').config()
+
 const app = express();
 
-mongoose.connect('mongodb+srv://Admin:1234@groupomaniacluster.trarxjc.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_URI,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

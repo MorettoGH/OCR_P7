@@ -29,8 +29,8 @@ function SignUpForm() {
                     alert('Utilisateur déjà existant')
                 })
                 
-        }else{
-            alert('Veuillez renseigner un email valide et un mot de passe.');
+            }else{
+                alert('Veuillez renseigner un email valide et un mot de passe.');
         }
     }
     
