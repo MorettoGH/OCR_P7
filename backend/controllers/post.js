@@ -7,13 +7,11 @@ exports.createPost = (req, res, next) => {
         userId: req.auth.userId,
         content: content
     });
-    if (req.body.userId === req.auth.userId || req.auth.isAdmin === true) {
-        if (req.file) {
-            post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}   
-        post.save()
-            .then(() => res.status(201).json({message: 'Votre publication a été publiée'}))
-            .catch(error => res.status(400).json({error}));
-    }    
+    if (req.file) {
+        post.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`}   
+    post.save()
+        .then(() => res.status(201).json({message: 'Votre publication a été publiée'}))
+        .catch(error => res.status(400).json({error}));   
 };
 
 exports.modifyPost = (req, res, next) => {
@@ -33,20 +31,22 @@ exports.modifyPost = (req, res, next) => {
 exports.deletePost = (req, res, next) => {
     Post.findOne({_id: req.params.id})
         .then((post) => {
-            if(post.imageUrl) {
-            const filename = post.imageUrl.split('/images/')[1];
-            fs.unlink(`images/${filename}`, () => {
-                Post.deleteOne({_id: req.params.id})
-                    .then(() => res.status(200).json({ message : "Publication supprimée !"}))
-                    .catch(error => res.status(400).json({ error }));
-            })}
-            else{
-                Post.deleteOne({_id: req.params.id})
-                    .then(() => res.status(200).json({ message : "Publication supprimée !"}))
-                    .catch(error => res.status(400).json({ error }));
-            }
+            if (post.userId === req.auth.userId || req.auth.isAdmin === true) {
+                if(post.imageUrl) {
+                const filename = post.imageUrl.split('/images/')[1];
+                fs.unlink(`images/${filename}`, () => {
+                    Post.deleteOne({_id: req.params.id})
+                        .then(() => res.status(200).json({ message : "Publication supprimée !"}))
+                        .catch(error => res.status(400).json({ error }));
+                })}
+                else{
+                    Post.deleteOne({_id: req.params.id})
+                        .then(() => res.status(200).json({ message : "Publication supprimée !"}))
+                        .catch(error => res.status(400).json({ error }));
+                }
+            }    
         })
-        .catch(error => res.status(500).json({ error }));
+        .catch(error => res.status(500).json({ error }));       
 }
 
 exports.getOnePost = (req, res, next) => {
